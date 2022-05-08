@@ -18,10 +18,9 @@ body::before {
   font-size: 14px;
 }
 .border-orange{
-  border-bottom: 3px solid rgb(255, 72, 0);
+  border-bottom: 3px solid #0c00b4;
 }
 
-.border-sec{
-  border-bottom: 5px solid rgb(255, 72, 0);
-  border-top: 5px solid rgb(255, 72, 0);
+.text-orange{
+  color:rgb(255, 72, 0);
 }
