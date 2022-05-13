@@ -9,7 +9,84 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="footer_style.css">
     <title>Öz geçmiş</title>
+
+    <script>
+        
+       
+
+        function control(){
+
+            var ad=document.forms['i_form'][0].value;   
+            var soyad=document.forms['i_form'][1].value;
+            var email=document.forms['i_form'][2].value;
+            var atpos=email.indexOf('@');
+            var dotpos=email.lastIndexOf('.');
+            var email_length=email.length;
+            var telno=document.forms['i_form'][3].value;           
+            //var adres=document.getelementById("adres").value.length;
+
+            if(ad=="")
+            {
+                alert("isim boş!");
+                return false;
+            }
+            if(soyad=="")
+            {
+                alert("soyisim boş!");
+                return false;
+            }
+            if(email=="")
+            {
+                alert("email boş!");
+                return false;
+            }
+            else
+            {
+                if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email_length)
+                {
+                    alert("geçersiz email!");
+                    return false;
+                }
+            }
+            if(telno=="")
+            {
+                alert("telefon boş!");
+                return false;
+            }            
+            else
+            {
+                if(telno.length != 10)
+                {
+                    alert("geçersiz telefon numarası! 10 Haneli giriniz!");
+                    return false;                    
+                }
+                else
+                {
+                    for(var i = 0; i < telno_lenght; i++)
+                    {
+                        if(isNaN(telno))
+                        {
+                            alert("geçersiz telefon numarası!");
+                            return false;
+                        }
+                    }
+                }                
+            }
+            if($("adres").val().trim().length < 1)
+            {
+                alert("Please Enter Text...");
+                return; 
+            }
+        
+            
+            
+            
+        }
+        
+    
+    </script>
 </head>
 
 <body>
@@ -30,11 +107,11 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a href="hakkinda.html" class="nav-link ">Hakkında</a></li>
-                    <li class="nav-item"><a href="cv.html" class="nav-link active">Öz Geçmiş</a></li>
+                    <li class="nav-item"><a href="cv.html" class="nav-link">Öz Geçmiş</a></li>
                     <li class="nav-item"><a href="sehrim.html" class="nav-link">Şehrim</a></li>
                     <li class="nav-item"><a href="mirasimiz.html" class="nav-link">Mirasımız</a></li>
                     <li class="nav-item"><a href="ilgi.html" class="nav-link">İlgi Alanlarım</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">İletişim</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">İletişim</a></li>
                     <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
                 </ul>
             </div>
@@ -43,41 +120,113 @@
     </nav>
     <!-- navbar-end -->
 
-    <section class="p-5"> 
+    <section class="p-5">
         <div class="container">
-            <form action="">
-                <label for="ad">AD:</label>            
-                <input placeholder="adınızı giriniz..." type="text"><br><br>
-                <label for="soyad">SOYAD:</label>
-                <input placeholder="soyadınızı giriniz..." type="text"><br><br>
-                <label for="posta">E-POSTA:</label>
-                <input placeholder="e-postanızı giriniz..." type="text"><br><br>
-                <label for="telno">TEL NO:</label>
-                <input placeholder="tel no giriniz..." type="text"><br>
-                <br>
-                <label for="erkek">ERKEK</label>
-                <input type="radio" name="cinsiyet" id="erkek" value="0">
-                <label for="kadin">KADIN</label>
-                <input type="radio" name="cinsiyet" id="kadin" value="1">
-                <br><br>
-                <label for="onay">SÖZLEŞMEYİ ONAYLA</label>
-                <input type="radio" name="sozlesme" id="onay"> 
-                <label for="red">SÖZLEŞMEYİ REDDET</label>
-                <input type="radio" name="sozlesme" id="red">
-                <br> <br>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-                <br><br>
-                <select name="" id="">
-
-                </select>
+            <form action="iletisimm.php" method="post" id="i_form" onsubmit="return control(this)">
+                <div class="mb-3 row justify-content-center">
+                    <label for="ad" class="col-sm-2 col-form-label">Ad</label>
+                    <div class="col-sm-3">
+                        <input id="ad" type="text" class="form-control" id="ad" name="ad">
+                    </div>
+                </div>
+                <div class="mb-3 row justify-content-center">
+                    <label for="soyad" class="col-sm-2 col-form-label">Soyad</label>
+                    <div class="col-sm-3">
+                        <input id="soyad" type="text" class="form-control" id="soyad" name="soyad">
+                    </div>
+                </div>
+                <div class="mb-3 row justify-content-center">
+                    <label for="_mail" class="col-sm-2 col-form-label">Email</label>
+           	         <div class="col-sm-3">
+                        <input id="_mail" type="text" class="form-control" name="_mail">
+                    </div>
+                </div>
+                <div class="mb-3 row justify-content-center">
+                    <label for="telno" class="col-sm-2 col-form-label">Telefon Numarası</label>
+                    <div class="col-sm-3">
+                        <input id="telno" type="text" class="form-control" id="telno" name="telno">
+                    </div>
+                </div>
+                <div class="mb-3 row justify-content-center">
+                    <div class="col-sm-5">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Cinsiyet
+                            </div>
+                            <div class="col-sm-7">
+                                <label for="erkek">Erkek&nbsp;</label>
+                                <input class=" me-3" type="radio" value="1" checked id="radio1"
+                                    name="cinsiyet" >
+                                <label for="kadin">Kadın&nbsp;</label>
+                                <input class="" type="radio" value="2" id="radio2"
+                                    name="cinsiyet" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 row justify-content-center">
+                    <div class="col-sm-5">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Sözleşme Onay
+                            </div>
+                            <input checked class="form-check-input" type="radio" value="2" id="sozlesme" name="sozlesme">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 row justify-content-center">
+                    <div class="col-sm-5">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Açık Adres
+                            </div>
+                            <div class="form-floating col-sm-7">
+                                <textarea class="form-control" id="adres" name="adres"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 row justify-content-center">
+                    <div class="col-sm-5">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Şehir
+                            </div>
+                            <div class="form-floating col-sm-7">
+                                <select class="form-select" aria-label="Default select example" name="sehir" id="sehir">
+                                    <option selected>Seçiniz</option>
+                                    <option value="0">Aksaray</option>
+                                    <option value="1">Ankara</option>
+                                    <option value="2">İstanbul</option>
+                                    <option value="3">İzmir</option>
+                                    <option value="4">Sakarya</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 row justify-content-center">
+                    <div class="col-sm-2">
+                        <button class="btn btn-primary w-100" type="reset" onclick="reset()">RESET</button>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary w-100">GÖNDER</button>
+                    </div>
+                </div>
             </form>
         </div>
     </section>
 
 
 
+
+
     <!-- footer-start -->
-    <footer class="p-3  bg-dark text-white text-center position-relative">
+    <footer class="p-3  bg-dark text-white text-center">
         <div class="container">
             <p class="lead fs-6">Copyright &copy; 2022 Mehmet OK</p>
             <a href="#" class="position-absolute bottom-0 end-0 my-auto p-3">
@@ -87,6 +236,7 @@
     </footer>
     <!-- footer-end -->
 
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
