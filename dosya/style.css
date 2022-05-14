@@ -15,7 +15,7 @@ body::before {
   font-weight: bolder;
 }
 .card-text{
-  font-size: 14px;
+  font-size: 12px;
 }
 .border-orange{
   border-bottom: 3px solid #0c00b4;
